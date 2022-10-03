@@ -1,3 +1,5 @@
+import FormSimulation from "../FormSimulation";
+import ReceiveTable from "../ReceiveTable";
 import {
   MainDashboard,
   ContainerDashboard,
@@ -9,8 +11,13 @@ const Dashboard = () => {
   return (
     <ContainerDashboard>
       <MainDashboard>
-        <SimulationSection> faça sua simulação </SimulationSection>
-        <YouReceive> Você ira receber x </YouReceive>
+        <SimulationSection>
+          <FormSimulation />
+        </SimulationSection>
+        <YouReceive>
+          {" "}
+          <ReceiveTable />{" "}
+        </YouReceive>
       </MainDashboard>
     </ContainerDashboard>
   );

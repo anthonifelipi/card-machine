@@ -14,7 +14,7 @@ export const ContainerDashboard = styled.div`
 export const MainDashboard = styled.div`
   display: flex;
   justify-content: center;
-  border: 1px solid #90baf0;
+  border: 3px solid #90baf0;
   border-radius: 5px;
   width: 80vw;
   max-width: 80%;
@@ -26,7 +26,7 @@ export const SimulationSection = styled.div`
   width: 65%;
 `;
 export const YouReceive = styled.div`
-  width: 30%;
+  width: 35%;
 `;
 
 // #90baf0

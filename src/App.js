@@ -1,13 +1,16 @@
-import logo from "./logo.svg";
-import "./App.css";
 import Header from "./components/Header";
 import Dashboard from "./components/Dashboard";
+import { PaymentProvider } from "./provider";
+import Home from "./pages";
 
 function App() {
   return (
     <>
-      <Header />
-      <Dashboard />;
+      <PaymentProvider>
+        <Home />
+        {/* <Header />
+        <Dashboard />; */}
+      </PaymentProvider>
     </>
   );
 }
