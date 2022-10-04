@@ -19,16 +19,6 @@ const ReceiveTable = () => {
         <TitleH2>VOCÊ RECEBERÁ</TitleH2>
       </ContainerHeader>
       <ContainerDays>
-        {/* {Object.entries(paymentInDays).map((item, i) => {
-          if (item[0] != daysIndividual) {
-            return (
-              <p key={i}>
-                em {item[0]} dias, R$: {item[1].toFixed(2)}
-              </p>
-            );
-          }
-        })} */}
-
         {paymentInDays.length == 0
           ? arrayDaysStatic.map((item, i) => {
               return <p key={i}>Em {item} dias, R$: 0,00</p>;
