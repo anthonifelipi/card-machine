@@ -35,11 +35,34 @@ export const ContainerDays = styled.div`
   width: 80%;
   height: 75%;
   padding: 10px;
+  border-bottom: 3px solid #fff;
+
+
+  p {
+    font-size: 1em;
+    margin: 0px;
+    padding: 2px;
+    color: #90baf0;
+    font-weight: 700;
+  }
+`;
+export const ContainerIndividualDays = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  height: 30%;
+  border-bottom: 3px solid #fff;
 
   p {
     margin: 0px;
     padding: 2px;
     color: #90baf0;
     font-weight: 700;
+  }
+
+  h4 {
+    color: #497dbf;
+    border-bottom: 3px solid #fff;
+    margin: 5% 0%;
   }
 `;
