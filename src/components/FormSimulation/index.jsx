@@ -6,9 +6,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import api from "../../service";
 import { useContext, useEffect } from "react";
 import { paymentContext } from "../../provider";
+import { daysContext } from "../../provider/daysProvider";
 
 const FormSimulation = () => {
   const { paymentInDays, setPaymentInDays } = useContext(paymentContext);
+  const { daysIndividual, setDaysIndividual } = useContext(daysContext);
 
   const schema = yup.object().shape({
     amount: yup
@@ -29,10 +31,8 @@ const FormSimulation = () => {
       .typeError("Coloque a quantidade de parcelas"),
     days: yup
       .number()
-      .required("Informe os dias que quer antecipar")
-      .typeError("Maximo de 10 dias para simulação")
-      .min(1)
-      .max(10),
+      // .required("Informe os dias que quer antecipar")
+      .typeError("Insira em quantos dias gostaria de antecipar"),
   });
 
   const {
@@ -44,9 +44,18 @@ const FormSimulation = () => {
   });
 
   const onSubmitFunction = async (data) => {
-    // let request = { ...data, days: [1, 15, 30, 60, 90, 120, 150, 180, 210] };
+    let request = [1, 15, 30, 60, 90, 120, 150, 180, 210];
+    request.push(data.days);
+    const requestData = {
+      amount: data.amount,
+      installments: data.installments,
+      mdr: data.mdr,
+      days: request,
+    };
+    setDaysIndividual(data.days);
+
     await api
-      .post("", data)
+      .post("", requestData)
       .then((response) => setPaymentInDays(response.data))
       .catch((error) => console.log(error));
   };
@@ -78,8 +87,9 @@ const FormSimulation = () => {
         />
         <Input
           register={register}
+          defaultValue={240}
           label="Informe os dias que quer antecipar"
-          placeholder="informe os dias, maximo de 10"
+          placeholder="Dias de antecipação"
           name="days"
           error={errors.days?.message}
         />
